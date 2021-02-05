@@ -1,0 +1,60 @@
+// Lines Beginning with Double Slashes are comments
+// << Indicates the CSV file to import
+// >> Indicate the Cribmaster Table
+// Format is CmField,TYPE,DATA
+// CmField = CribMaster Field
+// DATA = Field name, static text, or decision information
+// TYPE = F = CSV Field
+//	  O = Same as F but omit record if field is empty
+//	  Z = Same as F but omit record if field is empty or zero (For Numeric data)
+//            You may use the following 2 codes as the first field for a record
+//	  K = Key Field and Key Field is Numeric
+//	  U = String Field and Treat this string as the Unique key for the record
+//	  S = Static Text
+//	  * = Multiply times CSVField
+//	  *S= Multiply times Static Data
+//	  / = Divide CSVField
+//	  /S= Divide by Static Data
+//	  + = Add CSVField
+//	  +S= Add Static Data
+//	  P = Insert Space then then add text data
+//	  C = Insert Comma and Space then add text data
+//	  - = Subtract CSVField
+//	  -S= Subtract Static Data
+//	  Q = Execute Simple Query and Return One Value - Example
+//	      WONo,Q Select WONo FROM Wo Where WOID='%s',WOID
+//	  D = Decision	  CSVField=345=1// If CSVFIELD = 345, Put a 1 in this field
+// Date Keywords - TODAY or NOW (Same as Today but includes the time)
+// Delimiter | Change delimiter from comma to |
+// Column FirstCol - Allows columns to be named in the rul file instead of first line of data
+// ReCalcAll Uncomment this to cause a Recalculate All Bins When processed by CmServer
+// RecalcEachBin will cause each bin created or modified to be Recalced
+// Key field must be the first in the list
+// For AutoNumber Records use first line Auto,S,0
+<<ask
+>>station
+START
+//Bin,F,Bin
+//Crib,F,Crib
+//Item,F,ItemNumber
+CribBin,F,CribBin
+BinQuantity,+,BinQuantity
+//Quantity,F,Quantity
+//Comments,F,Comments
+//CountType,S,1
+//OverrideOrderPoint,F,OrderPoint
+//Maximum,F,Max
+//OverrideOrderQuantity,F,OrderQuantity
+//BinCapacity,F,BinCapacity
+//Consignment,S,1    // 1=TRUE
+//DateLastCount,S,02/20/96
+//DateLastIssue,
+//DateLastReciept,
+//ForceOrder,F,ForceOrder       
+//MinOrder,F,MinOrder
+//OverrideMonthlyUsage,
+//OverrideSafetyStock,
+//PendingRework,
+//StockFromCribBin,
+//StopOrdering,S,1    // 1=TRUE
+//UsageThisMonth,F,UsageThisMonth
